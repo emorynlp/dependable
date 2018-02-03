@@ -1,6 +1,6 @@
 # DependAble
 
-This project provides web-based visualization and evaluation tools for dependency parsing. Same data to try out these tools can be found in [`dat`](dat).
+This project provides web-based visualization and evaluation tools for dependency parsing. Sample data to try out these tools can be found in [`dat`](dat).
 
 * [Evaluation tool](https://emorynlp.github.io/dependable/evaluate.html).
 * [Comparison tool](https://emorynlp.github.io/dependable/compare.html).
