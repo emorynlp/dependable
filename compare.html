@@ -1,0 +1,82 @@
+<script type="text/javascript" src="js/clearnlp_utils.js"></script>
+<script type="text/javascript" src="js/clearnlp_dep.js"></script>
+<script type="text/javascript" src="js/clearnlp_compare.js"></script>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="css/clearnlp.css" rel="stylesheet" media="screen"/>
+<title>ClearNLP - Dependency Comparison</title>
+</head>
+
+<body>
+<div>
+<h1>Dependency Comparison</h1>
+
+<table>
+  <tr>
+    <td>Gold:</td>
+    <td><input type="file" id="GOLD_FILE" onchange="readGoldFile(this.files[0])"/></td>
+    <td><input type="button" id="PROCESS_BUTTON" disabled="true" onclick="process();" style="width:100px" value="Process"/></td>
+    </td>
+  </tr>
+  <tr>
+    <td>Systems:</td>
+    <td><input type="file" id="SYSTEM_FILES" onchange="readSystemFiles(this.files)" multiple disabled="true"/></td>
+    <td><input type="button" id="EXPORT_BUTTON" disabled="true" onclick="exportCanvas();" style="width:100px" value="Export"/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      Form:  <input type="text" style="width:30px" id="TEXT_FORM"    value="1">&nbsp;&nbsp;
+      POS:   <input type="text" style="width:30px" id="TEXT_POS"     value="4">&nbsp;&nbsp;
+      Head:  <input type="text" style="width:30px" id="TEXT_HEAD_ID" value="6">&nbsp;&nbsp;
+      Label: <input type="text" style="width:30px" id="TEXT_DEPREL"  value="7">
+    </td>
+  </tr>
+</table>
+<br>
+<table>
+<tr>
+  <td id="CONTROL_PANEL_TOP" style="vertical-align:top;text-align:center;width:110px">
+    1 &#8672; Zoom &#8674; 4<br>
+    <input id="ZOOM" type="range" min="1" max="4" step="0.2" value="1" style="width:110px" onchange="selectTreeID()"><br>
+    <button onclick="clickPrevious();" style="width:55px;height:48px" type="button"><img src="img/previous.png" width="40" height="40"/></button>
+    <button onclick="clickNext();"     style="width:55px;height:48px" type="button"><img src="img/next.png"     width="40" height="40"/></button><br>
+  </td>
+  <td rowspan="4">&nbsp;&nbsp;&nbsp;</td>
+  <td rowspan="4" style="vertical-align:top;text-align:left">
+    <div align="center" id="css_deptree_canvas">
+      <canvas id="CANVAS_TREES" width="450px"></canvas><br>
+      <P style="font-size: smaller">&copy;2014 Center for Language and Information Research, Emory University.</P>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td id="TREE_NUMBER" style="vertical-align:top;text-align:center"><br></td>
+</tr>
+<tr>
+  <td>
+    <select id="TREE_IDS" multiple="multiple" style="width:110px;height:150px;" onchange="selectTreeID();"></select><br>
+    <br>
+    <div style="text-align:left;margin-left:10px">
+    Skip if correct<br>
+    <input type="radio" id="SKIP_LAS"  name="RADIO_SKIP"/> By LAS<br>
+    <input type="radio" id="SKIP_UAS"  name="RADIO_SKIP"/> By UAS<br>
+    <input type="radio" id="SKIP_NONE" name="RADIO_SKIP" checked="true"/> None<br>
+    <br>
+    </div>
+    Sentence length<br>
+    <table>
+      <tr><td>Min:</td><td><input type="text" id="SEN_LEN_MIN" style="width:50px" value="0"/></td></tr>
+      <tr><td>Max:</td><td><input type="text" id="SEN_LEN_MAX" style="width:50px" value="1000"/></td></tr>
+    </table>
+  </td>
+</tr>
+<tr >
+  <td id="CONTROL_PANEL" style="vertical-align:top;text-align:center"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

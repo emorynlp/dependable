@@ -1,0 +1,40 @@
+<script type="text/javascript" src="js/canvasjs.min.js"></script>
+<script type="text/javascript" src="js/clearnlp_utils.js"></script>
+<script type="text/javascript" src="js/clearnlp_dep.js"></script>
+<script type="text/javascript" src="js/clearnlp_evaluate.js"></script>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="css/clearnlp.css" rel="stylesheet" media="screen"/>
+<title>ClearNLP - Dependency Evaluation</title>
+</head>
+
+<body>
+<div align="center">
+  <h1>Dependency Evaluation</h1>
+
+  <table>
+    <tr><td>Gold:   </td><td><input type="file" id="GOLD_FILE"    onchange="readGoldFile(this.files[0])"/></td></tr>
+    <tr><td>Systems:</td><td><input type="file" id="SYSTEM_FILES" onchange="readSystemFiles(this.files)" multiple disabled="true"/></td></tr>
+    <tr><td></td><td>
+      <input type="button" id="PROCESS_BUTTON" disabled="true" onclick="process();" style="width:100px" value="Process"/>
+      <input type="checkbox" id="INCLUDE_SYMBOLS" checked/> Symbols
+      <input type="checkbox" id="INCLUDE_PROJ"    checked/> Proj. trees
+      <input type="checkbox" id="INCLUDE_NONPROJ" checked/> Non-proj. trees
+    </td></tr>
+  </table><br>
+
+  Form:  <input type="text" style="width:30px" id="TEXT_FORM"    value="1">&nbsp;&nbsp;
+  POS:   <input type="text" style="width:30px" id="TEXT_POS"     value="4">&nbsp;&nbsp;
+  Head:  <input type="text" style="width:30px" id="TEXT_HEAD_ID" value="6">&nbsp;&nbsp;
+  Label: <input type="text" style="width:30px" id="TEXT_DEPREL"  value="7"><br>
+
+  <div align="center" id="CHART_SPACE"></div>
+</div>
+
+<P class=copyright>&copy;2014 Center for Language and Information Research, Emory University.</P>
+</body>
+</html>
+
+
